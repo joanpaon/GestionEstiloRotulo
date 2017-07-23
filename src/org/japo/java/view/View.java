@@ -69,7 +69,7 @@ public class View extends javax.swing.JFrame {
         control.sincronizarModeloVista(model, this);
 
         // Enfocar Control Inicial
-        btnCargar.requestFocus();
+        btnImportar.requestFocus();
 
         // Otras inicializaciones
     }
@@ -83,14 +83,14 @@ public class View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlRotulo = new javax.swing.JPanel();
+        lblRotulo = new javax.swing.JLabel();
         pnlAjustes = new javax.swing.JPanel();
         cbxNegrita = new javax.swing.JCheckBox();
         cbxCursiva = new javax.swing.JCheckBox();
         pnlControles = new javax.swing.JPanel();
-        btnCargar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        lblRotulo = new javax.swing.JLabel();
+        btnImportar = new javax.swing.JButton();
+        btnExportar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestión Estilo Rótulo");
@@ -100,6 +100,33 @@ public class View extends javax.swing.JFrame {
                 formWindowClosing(evt);
             }
         });
+
+        pnlRotulo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rótulo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
+
+        lblRotulo.setBackground(java.awt.Color.white);
+        lblRotulo.setFont(new java.awt.Font("Calibri", 0, 48)); // NOI18N
+        lblRotulo.setForeground(java.awt.Color.black);
+        lblRotulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRotulo.setText("Texto de Prueba");
+        lblRotulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        lblRotulo.setOpaque(true);
+
+        javax.swing.GroupLayout pnlRotuloLayout = new javax.swing.GroupLayout(pnlRotulo);
+        pnlRotulo.setLayout(pnlRotuloLayout);
+        pnlRotuloLayout.setHorizontalGroup(
+            pnlRotuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlRotuloLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblRotulo, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlRotuloLayout.setVerticalGroup(
+            pnlRotuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlRotuloLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblRotulo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         pnlAjustes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ajustes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
 
@@ -124,9 +151,9 @@ public class View extends javax.swing.JFrame {
         pnlAjustesLayout.setHorizontalGroup(
             pnlAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAjustesLayout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
+                .addContainerGap(98, Short.MAX_VALUE)
                 .addComponent(cbxNegrita)
-                .addGap(75, 75, 75)
+                .addGap(97, 97, 97)
                 .addComponent(cbxCursiva, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85))
         );
@@ -147,19 +174,19 @@ public class View extends javax.swing.JFrame {
 
         pnlControles.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Controles", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
 
-        btnCargar.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        btnCargar.setText("Cargar");
-        btnCargar.addActionListener(new java.awt.event.ActionListener() {
+        btnImportar.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        btnImportar.setText("Importar");
+        btnImportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCargarActionPerformed(evt);
+                btnImportarActionPerformed(evt);
             }
         });
 
-        btnGuardar.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        btnGuardar.setText("Guardar");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+        btnExportar.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        btnExportar.setText("Exportar");
+        btnExportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+                btnExportarActionPerformed(evt);
             }
         });
 
@@ -168,10 +195,10 @@ public class View extends javax.swing.JFrame {
         pnlControlesLayout.setHorizontalGroup(
             pnlControlesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlControlesLayout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
-                .addComponent(btnCargar, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE)
+                .addComponent(btnImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59))
         );
         pnlControlesLayout.setVerticalGroup(
@@ -179,35 +206,8 @@ public class View extends javax.swing.JFrame {
             .addGroup(pnlControlesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlControlesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCargar)
-                    .addComponent(btnGuardar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Display", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
-
-        lblRotulo.setBackground(java.awt.Color.white);
-        lblRotulo.setFont(new java.awt.Font("Calibri", 0, 48)); // NOI18N
-        lblRotulo.setForeground(java.awt.Color.black);
-        lblRotulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRotulo.setText("Texto de Prueba");
-        lblRotulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        lblRotulo.setOpaque(true);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblRotulo, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblRotulo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnImportar)
+                    .addComponent(btnExportar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -220,17 +220,17 @@ public class View extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlControles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlAjustes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlRotulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPanel1, pnlAjustes, pnlControles});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {pnlAjustes, pnlControles, pnlRotulo});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlRotulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlAjustes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -246,13 +246,13 @@ public class View extends javax.swing.JFrame {
         control.procesarCierreVentana(evt);
     }//GEN-LAST:event_formWindowClosing
 
-    private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
+    private void btnImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportarActionPerformed
         control.procesarImportacion(evt);
-    }//GEN-LAST:event_btnCargarActionPerformed
+    }//GEN-LAST:event_btnImportarActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
         control.procesarExportacion(evt);
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    }//GEN-LAST:event_btnExportarActionPerformed
 
     private void cbxNegritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxNegritaActionPerformed
         control.procesarNegrita(evt);
@@ -263,14 +263,14 @@ public class View extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxCursivaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCargar;
-    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnExportar;
+    private javax.swing.JButton btnImportar;
     public javax.swing.JCheckBox cbxCursiva;
     public javax.swing.JCheckBox cbxNegrita;
-    private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel lblRotulo;
     private javax.swing.JPanel pnlAjustes;
     private javax.swing.JPanel pnlControles;
+    private javax.swing.JPanel pnlRotulo;
     // End of variables declaration//GEN-END:variables
 
     public Model getModel() {
