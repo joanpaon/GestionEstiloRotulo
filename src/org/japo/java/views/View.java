@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.japo.java.view;
+package org.japo.java.views;
 
-import java.net.URL;
-import javax.swing.ImageIcon;
+import java.util.Properties;
 import org.japo.java.controllers.Controller;
-import org.japo.java.entities.Model;
+import org.japo.java.libraries.UtilesApp;
+import org.japo.java.models.Model;
 
 /**
  *
@@ -26,52 +26,32 @@ import org.japo.java.entities.Model;
  */
 public class View extends javax.swing.JFrame {
 
+    // Fichero Propiedades
+    public static final String FICHERO = "view.properties";
+
     // Referencias 
     private Model model;
     private Controller control;
+    private Properties prpView;
 
     // Constructor
     public View() {
-        // Inicializar GUI - PREVIA
-        beforeInit();
+        // Inicializacion Anterior
+        initBefore();
 
-        // Construcción - GUI
+        // Creación Vista
         initComponents();
 
-        // Inicializar GUI - POSTERIOR
-        afterInit();
+        // Inicializacion Posterior
+        initAfter();
     }
 
-    // Inicializar GUI - PREVIA
-    private void beforeInit() {
-        // Generar Modelo
-        model = new Model();
-
-        // Generar Controlador
-        control = new Controller(model, this);
-
-        // Restaurar Estado Previo
-        control.restaurarEstadoApp();
-
-        // Otras inicializaciones
+    public Model getModel() {
+        return model;
     }
 
-    // Inicializar GUI - POSTERIOR
-    private void afterInit() {
-        // Icono Ventana - Recurso
-        URL urlICN = ClassLoader.getSystemResource("img/favicon.png");
-        setIconImage(new ImageIcon(urlICN).getImage());
-
-//        // Escuchador Cambio Texto
-//        txfTexto.getDocument().addDocumentListener(new DEM(control));
-//
-        // Modelo > Vista
-        control.sincronizarModeloVista(model, this);
-
-        // Enfocar Control Inicial
-        btnImportar.requestFocus();
-
-        // Otras inicializaciones
+    public void setModel(Model model) {
+        this.model = model;
     }
 
     /**
@@ -243,7 +223,7 @@ public class View extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        control.procesarCierreVentana(evt);
+        control.procesarCierreVista(evt);
     }//GEN-LAST:event_formWindowClosing
 
     private void btnImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportarActionPerformed
@@ -273,11 +253,27 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JPanel pnlRotulo;
     // End of variables declaration//GEN-END:variables
 
-    public Model getModel() {
-        return model;
+    // Inicializacion Anterior
+    private void initBefore() {
+        // Crear Modelo
+        model = new Model();
+
+        // Crear Controlador
+        control = new Controller(model, this);
+
+        // Cargar Propiedades Vista
+        prpView = UtilesApp.cargarPropiedades(FICHERO);
+
+        // Restaurar Estado
+        control.restaurarEstadoVista(this, prpView);
     }
 
-    public void setModel(Model model) {
-        this.model = model;
+    // Inicializacion Posterior
+    private void initAfter() {
+        // Modelo > Vista
+        control.sincronizarModeloVista(model, this);
+
+        // Enfocar Control Inicial
+        btnImportar.requestFocus();
     }
 }
